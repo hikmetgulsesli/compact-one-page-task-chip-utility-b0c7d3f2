@@ -4,7 +4,6 @@ import {
   useCompactOnePageTaskChipUtility,
 } from '../features/compact-one-page-task-chip-utility/compact-one-page-task-chip-utility.store';
 import type {
-  AppPanel,
   StoreContextValue,
 } from '../features/compact-one-page-task-chip-utility/compact-one-page-task-chip-utility.types';
 
@@ -23,23 +22,6 @@ export interface AppBridge {
 }
 
 const APP_BRIDGE_VERSION = '1.0.0';
-
-const emptySnapshot: AppBridgeSnapshot = {
-  version: APP_BRIDGE_VERSION,
-  activeSurface: 'SURF_RECORD_OPERATIONS',
-  activePanel: 'list' as AppPanel,
-  selectedRecord: null,
-  records: [],
-  counts: { total: 0, active: 0, pending: 0, done: 0, archived: 0 },
-  storageStatus: 'idle',
-  lastError: null,
-  goToSurface: () => undefined,
-  goToPanel: () => undefined,
-  selectRecord: () => undefined,
-  updateRecordStatus: () => undefined,
-  clearCache: () => undefined,
-  exportJSON: () => '',
-};
 
 interface AppBridgeHost {
   app?: AppBridge;

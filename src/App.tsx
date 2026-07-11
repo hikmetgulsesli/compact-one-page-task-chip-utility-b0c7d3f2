@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import {
   CompactOnePageTaskChipUtilityProvider,
   useCompactOnePageTaskChipUtility,
@@ -25,12 +27,26 @@ type EmptyAndErrorProps = Parameters<
   typeof EmptyAndErrorRecoveryCompactOnePageTaskChipUtility
 >[0];
 
-const RECORD_OPERATIONS_ACTIONS: RecordOperationsProps['actions'] = {};
-const RECORD_EDITOR_ACTIONS: RecordEditorProps['actions'] = {};
-const EMPTY_AND_ERROR_ACTIONS: EmptyAndErrorProps['actions'] = {};
-
 function CurrentSurface() {
   const { activeSurface } = useCompactOnePageTaskChipUtility();
+
+  // Action maps are built inside the component via `useMemo` so they can
+  // capture the live store actions returned by
+  // `useCompactOnePageTaskChipUtility()` instead of being defined as
+  // module-level global constants (which would always reference noop
+  // handlers and leave the screens non-interactive).
+  const recordOperationsActions = useMemo<RecordOperationsProps['actions']>(
+    () => ({}),
+    [],
+  );
+  const recordEditorActions = useMemo<RecordEditorProps['actions']>(
+    () => ({}),
+    [],
+  );
+  const emptyAndErrorActions = useMemo<EmptyAndErrorProps['actions']>(
+    () => ({}),
+    [],
+  );
 
   if (activeSurface === 'SURF_RECORD_OPERATIONS') {
     return (
@@ -40,7 +56,7 @@ function CurrentSurface() {
         data-testid="setfarm-app-root"
         className="min-h-screen w-full"
       >
-        <RecordOperationsCompactOnePageTaskChipUtility actions={RECORD_OPERATIONS_ACTIONS} />
+        <RecordOperationsCompactOnePageTaskChipUtility actions={recordOperationsActions} />
       </div>
     );
   }
@@ -53,7 +69,7 @@ function CurrentSurface() {
         data-testid="setfarm-app-root"
         className="min-h-screen w-full"
       >
-        <RecordEditorCompactOnePageTaskChipUtility actions={RECORD_EDITOR_ACTIONS} />
+        <RecordEditorCompactOnePageTaskChipUtility actions={recordEditorActions} />
       </div>
     );
   }
@@ -66,7 +82,7 @@ function CurrentSurface() {
       className="min-h-screen w-full"
     >
       <EmptyAndErrorRecoveryCompactOnePageTaskChipUtility
-        actions={EMPTY_AND_ERROR_ACTIONS}
+        actions={emptyAndErrorActions}
       />
     </div>
   );

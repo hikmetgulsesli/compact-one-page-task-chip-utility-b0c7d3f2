@@ -1,8 +1,24 @@
 import type {
+  AppPanel,
+  AppSurface,
   PersistedRecords,
   Preferences,
   TaskRecord,
 } from './compact-one-page-task-chip-utility.types';
+
+const VALID_SURFACES: ReadonlySet<AppSurface> = new Set<AppSurface>([
+  'SURF_RECORD_OPERATIONS',
+  'SURF_RECORD_EDITOR',
+  'SURF_EMPTY_AND_ERROR_RECOVERY',
+]);
+
+const VALID_PANELS: ReadonlySet<AppPanel> = new Set<AppPanel>([
+  'list',
+  'editor',
+  'detail',
+  'filter',
+  'settings',
+]);
 
 /**
  * Persistence boundary for the Compact One Page Task Chip Utility.
@@ -63,8 +79,11 @@ export function createLocalStorageAdapter(storage: Storage | null): StorageAdapt
     setItem(key, value) {
       try {
         storage.setItem(key, value);
-      } catch {
-        // Quota errors must not crash the UI; the store reports the failure.
+      } catch (err) {
+        // Quota / SecurityError must propagate so the store's persist effect
+        // can catch and surface the failure rather than silently treating
+        // the write as successful.
+        throw err;
       }
     },
     removeItem(key) {
@@ -109,6 +128,8 @@ function sanitizePreferences(parsed: unknown): Preferences | null {
   };
   if (typeof candidate.activeSurface !== 'string') return null;
   if (typeof candidate.activePanel !== 'string') return null;
+  if (!VALID_SURFACES.has(candidate.activeSurface as AppSurface)) return null;
+  if (!VALID_PANELS.has(candidate.activePanel as AppPanel)) return null;
   const selectedRecordId =
     typeof candidate.selectedRecordId === 'string' ||
     candidate.selectedRecordId === null

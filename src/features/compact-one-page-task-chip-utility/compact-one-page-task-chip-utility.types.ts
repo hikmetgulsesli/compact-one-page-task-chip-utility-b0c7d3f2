@@ -70,6 +70,7 @@ export interface PersistedState {
 export interface AppState {
   activeSurface: AppSurface;
   activePanel: AppPanel;
+  selectedRecordId: string | null;
   selectedRecord: TaskRecord | null;
   records: ReadonlyArray<TaskRecord>;
   counts: TaskCounts;

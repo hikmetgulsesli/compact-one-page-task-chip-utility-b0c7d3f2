@@ -11,7 +11,6 @@ import {
 
 import {
   DEFAULT_PREFERENCES,
-  SAMPLE_COUNTS,
   SAMPLE_RECORDS,
   deriveCounts,
 } from '../../__fixtures__/compact-one-page-task-chip-utility.fixture';
@@ -42,19 +41,18 @@ import type {
  * stable navigation/action handlers sibling screen-owner stories wire into
  * their props.
  *
- * The provider:
- *  - Hydrates from the persistence layer on mount and recovers from corrupted
- *    payloads without overwriting the broken blob before the user has a
- *    chance to act (PR review thread PRRT_kwDOTVhfoc6QIQU6).
- *  - Defends against `localStorage` access that can throw in private browsing
- *    or sandboxed contexts (PR review thread PRRT_kwDOTVhfoc6QIQVA).
- *  - Removes the unused `initialErrorRef` placeholder so dead code does not
- *    ship (PR review thread PRRT_kwDOTVhfoc6QIQVD).
+ * Design rules enforced here (PR review threads):
+ *  - `records` and `selectedRecordId` are the only sources of truth. `counts`
+ *    and `selectedRecord` are derived with `useMemo` to avoid state
+ *    synchronization bugs and side effects inside reducer-style updaters
+ *    (PRRT_kwDOTVhfoc6QIVQw).
+ *  - Hydration treats any load failure (`loadPreferences` or `loadRecords`)
+ *    as a recoverable error. The persistence write effect stays suppressed
+ *    until the corrupted payload has been reported (PRRT_kwDOTVhfoc6QIVQr).
+ *  - `localStorage` write errors propagate through the adapter so the
+ *    persistence effect can mark the storage as corrupted (handled by the
+ *    repo's `setItem` rethrowing).
  */
-
-const noopActions = {
-  exportJSON: () => '',
-};
 
 interface ProviderProps {
   children: ReactNode;
@@ -63,36 +61,18 @@ interface ProviderProps {
   initialRecords?: ReadonlyArray<TaskRecord>;
 }
 
-interface InternalState {
-  activeSurface: AppSurface;
-  activePanel: AppPanel;
-  selectedRecord: TaskRecord | null;
-  records: ReadonlyArray<TaskRecord>;
-  counts: TaskCounts;
-  storageStatus: StorageStatus;
-  lastError: AppError | null;
+interface HydrationResult {
+  preferences: Preferences | null;
+  records: TaskRecord[] | null;
+  corrupted: boolean;
+  error: AppError | null;
 }
 
 function nowMillis(): number {
   return Date.now();
 }
 
-function buildInitialState(
-  preferences: Preferences,
-  records: ReadonlyArray<TaskRecord>,
-): InternalState {
-  return {
-    activeSurface: preferences.activeSurface,
-    activePanel: preferences.activePanel,
-    selectedRecord: null,
-    records,
-    counts: preferences.counts.total === records.length ? preferences.counts : deriveCounts(records),
-    storageStatus: 'idle',
-    lastError: null,
-  };
-}
-
-function recordById(
+function findRecord(
   records: ReadonlyArray<TaskRecord>,
   id: string | null,
 ): TaskRecord | null {
@@ -111,85 +91,101 @@ export function CompactOnePageTaskChipUtilityProvider({
   initialRecords,
 }: CompactOnePageTaskChipUtilityProviderProps) {
   const fallbackRepo = useMemo(() => repo ?? createCompactRepo(), [repo]);
-  const initial = useMemo<InternalState>(() => {
-    const preferences = initialPreferences ?? DEFAULT_PREFERENCES;
-    const records = initialRecords ?? SAMPLE_RECORDS;
-    return buildInitialState(preferences, records);
-  }, [initialPreferences, initialRecords]);
-
-  const [activeSurface, setActiveSurface] = useState<AppSurface>(initial.activeSurface);
-  const [activePanel, setActivePanel] = useState<AppPanel>(initial.activePanel);
-  const [selectedRecord, setSelectedRecord] = useState<TaskRecord | null>(
-    initial.selectedRecord,
+  const initialRecordsArray = useMemo<ReadonlyArray<TaskRecord>>(
+    () => initialRecords ?? SAMPLE_RECORDS,
+    [initialRecords],
   );
-  const [records, setRecords] = useState<ReadonlyArray<TaskRecord>>(initial.records);
-  const [counts, setCounts] = useState<TaskCounts>(initial.counts);
-  const [storageStatus, setStorageStatus] = useState<StorageStatus>(initial.storageStatus);
-  const [lastError, setLastError] = useState<AppError | null>(initial.lastError);
+  const initialPreferencesValue = useMemo<Preferences>(
+    () => initialPreferences ?? DEFAULT_PREFERENCES,
+    [initialPreferences],
+  );
+
+  const [activeSurface, setActiveSurface] = useState<AppSurface>(
+    initialPreferencesValue.activeSurface,
+  );
+  const [activePanel, setActivePanel] = useState<AppPanel>(
+    initialPreferencesValue.activePanel,
+  );
+  const [records, setRecords] = useState<ReadonlyArray<TaskRecord>>(
+    initialRecordsArray,
+  );
+  const [selectedRecordId, setSelectedRecordId] = useState<string | null>(
+    initialPreferencesValue.selectedRecordId,
+  );
+  const [storageStatus, setStorageStatus] = useState<StorageStatus>('idle');
+  const [lastError, setLastError] = useState<AppError | null>(null);
 
   // Track whether the first persistence cycle has completed. We do NOT want
   // the persistence effect to overwrite a corrupted blob before the user has
-  // seen the recovery surface, so writes are skipped on the initial render.
+  // seen the recovery surface, so writes are skipped until hydration either
+  // succeeded or the user acted on a corrupted-state notification.
   const hasHydratedRef = useRef(false);
 
-  // Load persisted preferences + records once on mount. Failures are surfaced
-  // through `lastError` and `storageStatus` so the Empty/Recovery screen can
-  // prompt for action.
+  // Hydrate from the persistence layer once on mount. Both loaders must
+  // succeed for the hydration to be considered clean; any failure marks the
+  // storage as corrupted and prevents the persistence effect from running.
   useEffect(() => {
     let cancelled = false;
     setStorageStatus('loading');
 
-    let persistedPreferences: Preferences | null = null;
-    let persistedRecords: TaskRecord[] | null = null;
+    const hydration: HydrationResult = (() => {
+      let preferences: Preferences | null = null;
+      let recordsLoaded: TaskRecord[] | null = null;
+      let corrupted = false;
+      let error: AppError | null = null;
+      const recordLoadErrors: AppError[] = [];
 
-    try {
-      persistedPreferences = fallbackRepo.loadPreferences();
-    } catch (err) {
-      if (!cancelled) {
-        setStorageStatus('corrupted');
-        setLastError({
+      try {
+        preferences = fallbackRepo.loadPreferences();
+      } catch (err) {
+        corrupted = true;
+        error = {
           source: 'load',
           message: err instanceof Error ? err.message : 'Failed to read preferences.',
           recoverable: true,
           observedAt: nowMillis(),
-        });
+        };
       }
-    }
 
-    try {
-      persistedRecords = fallbackRepo.loadRecords();
-    } catch (err) {
-      if (!cancelled && persistedPreferences === null) {
-        setStorageStatus('corrupted');
-        setLastError({
+      try {
+        recordsLoaded = fallbackRepo.loadRecords();
+      } catch (err) {
+        // Always surface a records-load failure regardless of whether
+        // preferences loaded. Silently dropping this error would let the
+        // app boot with sample records, mark hydration as complete, and
+        // overwrite the corrupted blob on the next save.
+        corrupted = true;
+        recordLoadErrors.push({
           source: 'load',
           message: err instanceof Error ? err.message : 'Failed to read records.',
           recoverable: true,
           observedAt: nowMillis(),
         });
       }
-    }
+
+      if (recordLoadErrors.length > 0 && error === null) {
+        error = recordLoadErrors[0];
+      }
+
+      return { preferences, records: recordsLoaded, corrupted, error };
+    })();
 
     if (cancelled) return undefined;
 
-    if (persistedPreferences === null && persistedRecords === null) {
-      // No persisted state – we are in a clean boot.
-      setStorageStatus('ready');
-    } else {
-      setStorageStatus('ready');
-      if (persistedPreferences) {
-        setActiveSurface(persistedPreferences.activeSurface);
-        setActivePanel(persistedPreferences.activePanel);
-        setSelectedRecord(recordById(persistedRecords ?? records, persistedPreferences.selectedRecordId));
-        setCounts(persistedPreferences.counts);
-      }
-      if (persistedRecords) {
-        setRecords(persistedRecords);
-        setCounts(deriveCounts(persistedRecords));
-      }
-    }
+    setStorageStatus(hydration.corrupted ? 'corrupted' : 'ready');
+    setLastError(hydration.error);
 
-    hasHydratedRef.current = true;
+    if (!hydration.corrupted) {
+      if (hydration.preferences) {
+        setActiveSurface(hydration.preferences.activeSurface);
+        setActivePanel(hydration.preferences.activePanel);
+        setSelectedRecordId(hydration.preferences.selectedRecordId);
+      }
+      if (hydration.records) {
+        setRecords(hydration.records);
+      }
+      hasHydratedRef.current = true;
+    }
 
     return () => {
       cancelled = true;
@@ -199,22 +195,32 @@ export function CompactOnePageTaskChipUtilityProvider({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fallbackRepo]);
 
+  // Derive counts and the resolved selected record from the canonical state.
+  // This guarantees they stay in sync with `records` / `selectedRecordId`
+  // without any side effects inside updater functions.
+  const counts: TaskCounts = useMemo(() => deriveCounts(records), [records]);
+  const selectedRecord: TaskRecord | null = useMemo(
+    () => findRecord(records, selectedRecordId),
+    [records, selectedRecordId],
+  );
+
   // Persist current preferences/records after each mutation. Skipped on the
-  // very first render so we never overwrite a corrupted payload before the
-  // recovery surface has had a chance to render.
+  // very first render and whenever hydration reported a corrupted blob, so we
+  // never overwrite the broken payload before the user has had a chance to
+  // recover.
   useEffect(() => {
     if (!hasHydratedRef.current) return;
     setStorageStatus('persisting');
     const preferences: Preferences = {
       activeSurface,
       activePanel,
-      selectedRecordId: selectedRecord?.id ?? null,
+      selectedRecordId,
       counts,
     };
     try {
       fallbackRepo.savePreferences(preferences);
       fallbackRepo.saveRecords([...records]);
-      setStorageStatus((current) => (current === 'corrupted' ? 'ready' : current));
+      setStorageStatus('ready');
       setLastError((current) =>
         current && current.source === 'persist' ? null : current,
       );
@@ -227,7 +233,14 @@ export function CompactOnePageTaskChipUtilityProvider({
         observedAt: nowMillis(),
       });
     }
-  }, [fallbackRepo, activeSurface, activePanel, selectedRecord, counts, records]);
+  }, [
+    fallbackRepo,
+    activeSurface,
+    activePanel,
+    selectedRecordId,
+    counts,
+    records,
+  ]);
 
   const goToSurface = useCallback((surface: AppSurface) => {
     setActiveSurface(surface);
@@ -238,7 +251,7 @@ export function CompactOnePageTaskChipUtilityProvider({
   }, []);
 
   const selectRecord = useCallback((record: TaskRecord | null) => {
-    setSelectedRecord(record);
+    setSelectedRecordId(record ? record.id : null);
   }, []);
 
   const updateRecordStatus = useCallback(
@@ -252,14 +265,6 @@ export function CompactOnePageTaskChipUtilityProvider({
           changed = true;
           return { ...record, status, updatedAt: nowMillis() };
         });
-        if (changed) {
-          setCounts(deriveCounts(next));
-          setSelectedRecord((selected) =>
-            selected && selected.id === recordId
-              ? { ...selected, status, updatedAt: nowMillis() }
-              : selected,
-          );
-        }
         return changed ? next : current;
       });
     },
@@ -267,14 +272,19 @@ export function CompactOnePageTaskChipUtilityProvider({
   );
 
   const clearCache = useCallback(() => {
-    fallbackRepo.clearAll();
+    try {
+      fallbackRepo.clearAll();
+    } catch {
+      // Clearing the cache is best-effort; the in-memory reset that follows
+      // is what the user actually experiences.
+    }
     setActiveSurface(DEFAULT_PREFERENCES.activeSurface);
     setActivePanel(DEFAULT_PREFERENCES.activePanel);
-    setSelectedRecord(null);
+    setSelectedRecordId(null);
     setRecords(SAMPLE_RECORDS);
-    setCounts(SAMPLE_COUNTS);
     setStorageStatus('ready');
     setLastError(null);
+    hasHydratedRef.current = true;
   }, [fallbackRepo]);
 
   const exportJSON = useCallback((): string => {
@@ -282,24 +292,34 @@ export function CompactOnePageTaskChipUtilityProvider({
       preferences: {
         activeSurface,
         activePanel,
-        selectedRecordId: selectedRecord?.id ?? null,
+        selectedRecordId,
         counts,
       },
       records,
     });
-  }, [activeSurface, activePanel, selectedRecord, counts, records]);
+  }, [activeSurface, activePanel, selectedRecordId, counts, records]);
 
   const state: AppState = useMemo(
     () => ({
       activeSurface,
       activePanel,
+      selectedRecordId,
       selectedRecord,
       records,
       counts,
       storageStatus,
       lastError,
     }),
-    [activeSurface, activePanel, selectedRecord, records, counts, storageStatus, lastError],
+    [
+      activeSurface,
+      activePanel,
+      selectedRecordId,
+      selectedRecord,
+      records,
+      counts,
+      storageStatus,
+      lastError,
+    ],
   );
 
   const actions: StoreActions = useMemo(
@@ -331,15 +351,3 @@ export function useCompactOnePageTaskChipUtility(): StoreContextValue {
   }
   return value;
 }
-
-// Re-exported for sibling stories that want to inspect the actions bag.
-export const __actionsBag: StoreActions = {
-  goToSurface: () => undefined,
-  goToPanel: () => undefined,
-  selectRecord: () => undefined,
-  updateRecordStatus: () => undefined,
-  clearCache: () => undefined,
-  exportJSON: () => '',
-};
-
-export { noopActions };

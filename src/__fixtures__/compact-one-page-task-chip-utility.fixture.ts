@@ -65,6 +65,10 @@ function deriveCounts(records: ReadonlyArray<TaskRecord>): TaskCounts {
   for (const record of records) {
     if (record.archived) {
       archived += 1;
+      // Archived tasks are excluded from active/pending/done status
+      // buckets to keep the active pool metrics accurate and avoid
+      // double-counting across status categories.
+      continue;
     }
     switch (record.status) {
       case 'active':
