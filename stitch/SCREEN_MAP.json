@@ -1,0 +1,29 @@
+[
+  {
+    "screenId": "d367654a23694e4694445868e564ac3c",
+    "name": "Record Editor - Compact One Page Task Chip Utility",
+    "type": "form",
+    "description": "Record Editor - Compact One Page Task Chip Utility screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "1229cabf8518496db73e326e9f0b0839",
+    "name": "Empty and Error Recovery - Compact One Page Task Chip Utility",
+    "type": "error",
+    "description": "Empty and Error Recovery - Compact One Page Task Chip Utility screen",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "9bf8a77dda5d4da4b2f0902e497028a9",
+    "name": "Record Operations - Compact One Page Task Chip Utility",
+    "type": "app-screen",
+    "description": "Record Operations - Compact One Page Task Chip Utility screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  }
+]

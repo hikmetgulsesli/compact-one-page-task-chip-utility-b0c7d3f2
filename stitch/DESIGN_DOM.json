@@ -1,0 +1,1648 @@
+{
+  "generatedAt": "2026-07-11T17:11:35.975Z",
+  "screenCount": 3,
+  "screens": {
+    "1229cabf8518496db73e326e9f0b0839": {
+      "screenId": "1229cabf8518496db73e326e9f0b0839",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "flex-col",
+          "classes": [
+            "bg-surface-container-low",
+            "border-r",
+            "border-outline-variant",
+            "docked",
+            "left-0",
+            "h-full",
+            "w-64",
+            "hidden",
+            "md:flex",
+            "flex-col"
+          ],
+          "childCount": 3
+        },
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "flex-1",
+            "flex",
+            "flex-col",
+            "min-w-0",
+            "overflow-y-auto",
+            "bg-surface",
+            "relative"
+          ],
+          "childCount": 15
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "New Task",
+          "classes": [
+            "w-full",
+            "flex",
+            "items-center",
+            "justify-center",
+            "bg-primary",
+            "text-on-primary",
+            "font-label-md",
+            "text-label-md",
+            "py-2",
+            "rounded-lg",
+            "hover:bg-surface-tint",
+            "transition-colors"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "filter_list",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-low",
+            "p-1.5",
+            "rounded-full",
+            "transition-colors",
+            "cursor-pointer",
+            "active:opacity-70"
+          ],
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-low",
+            "p-1.5",
+            "rounded-full",
+            "transition-colors",
+            "cursor-pointer",
+            "active:opacity-70"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "Retry Sync",
+          "classes": [
+            "shrink-0",
+            "bg-error",
+            "text-on-error",
+            "font-label-md",
+            "text-label-md",
+            "px-4",
+            "py-2",
+            "rounded",
+            "border",
+            "border-transparent",
+            "hover:bg-[#93000a]",
+            "transition-colors",
+            "whitespace-nowrap"
+          ],
+          "icon": null,
+          "action": "retry",
+          "expectedBehavior": "retry the failed action and show loading/error feedback"
+        },
+        {
+          "kind": "button",
+          "label": "Create your first task",
+          "classes": [
+            "bg-primary",
+            "text-on-primary",
+            "font-label-md",
+            "text-label-md",
+            "px-5",
+            "py-2.5",
+            "rounded-lg",
+            "hover:bg-surface-tint",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "shadow-[0_1px_3px_rgba(0,0,0,0.1)]"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Clear Filters",
+          "classes": [
+            "bg-transparent",
+            "text-on-surface",
+            "font-label-md",
+            "text-label-md",
+            "px-5",
+            "py-2.5",
+            "rounded-lg",
+            "border",
+            "border-outline-variant",
+            "hover:bg-surface-container-low",
+            "transition-colors",
+            "flex",
+            "items-center"
+          ],
+          "icon": "filter_alt_off",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream Local Storage Active",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream v1.0 • Storage: Local",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search tasks...",
+          "placeholder": "Search tasks...",
+          "name": "",
+          "classes": [
+            "pl-8",
+            "pr-3",
+            "py-1.5",
+            "bg-surface-container-lowest",
+            "border",
+            "border-outline-variant",
+            "rounded-lg",
+            "font-body-sm",
+            "text-body-sm",
+            "focus:border-primary",
+            "focus:ring-1",
+            "focus:ring-primary",
+            "w-48",
+            "transition-colors",
+            "text-on-surface",
+            "placeholder:text-outline-variant"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Tasks",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined",
+            "mr-3"
+          ],
+          "icon": "checklist",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Archives",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined",
+            "mr-3"
+          ],
+          "icon": "archive",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "href": "#",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:text-primary",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "href": "#",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:text-primary",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "checklist",
+        "archive",
+        "add",
+        "search",
+        "filter_list",
+        "settings",
+        "error",
+        "assignment_add",
+        "search_off",
+        "filter_alt_off"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "surface-container": "#e6eeff",
+        "surface-tint": "#4d44e3",
+        "surface-dim": "#ccdbf3",
+        "on-primary-fixed": "#0f0069",
+        "tertiary": "#7e3000",
+        "primary-container": "#4f46e5",
+        "on-tertiary-fixed": "#351000",
+        "on-error": "#ffffff",
+        "surface-container-low": "#eff4ff",
+        "on-secondary-fixed": "#07006c",
+        "primary-fixed-dim": "#c3c0ff",
+        "inverse-primary": "#c3c0ff",
+        "on-primary-container": "#dad7ff",
+        "surface-variant": "#d5e3fc",
+        "surface": "#f8f9ff",
+        "inverse-on-surface": "#eaf1ff",
+        "on-surface": "#0d1c2e",
+        "surface-container-lowest": "#ffffff",
+        "secondary": "#4648d4",
+        "secondary-fixed-dim": "#c0c1ff",
+        "outline": "#777587",
+        "surface-bright": "#f8f9ff",
+        "inverse-surface": "#233144",
+        "outline-variant": "#c7c4d8",
+        "on-tertiary": "#ffffff",
+        "secondary-fixed": "#e1e0ff",
+        "error-container": "#ffdad6",
+        "on-surface-variant": "#464555",
+        "secondary-container": "#6063ee",
+        "error": "#ba1a1a",
+        "surface-container-highest": "#d5e3fc",
+        "on-tertiary-fixed-variant": "#7b2f00",
+        "on-secondary-fixed-variant": "#2f2ebe",
+        "on-error-container": "#93000a",
+        "on-secondary": "#ffffff",
+        "tertiary-container": "#a44100",
+        "on-primary": "#ffffff",
+        "primary": "#3525cd",
+        "surface-container-high": "#dce9ff",
+        "tertiary-fixed": "#ffdbcc",
+        "background": "#f8f9ff",
+        "on-secondary-container": "#fffbff",
+        "on-primary-fixed-variant": "#3323cc",
+        "tertiary-fixed-dim": "#ffb695",
+        "on-background": "#0d1c2e",
+        "primary-fixed": "#e2dfff",
+        "on-tertiary-container": "#ffd2be"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "4"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Tasks",
+          "icon": "checklist",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Archives",
+          "icon": "archive",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "filter_list",
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "Retry Sync",
+          "icon": null,
+          "action": "retry",
+          "expectedBehavior": "retry the failed action and show loading/error feedback"
+        },
+        {
+          "kind": "button",
+          "label": "Create your first task",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Clear Filters",
+          "icon": "filter_alt_off",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream Local Storage Active",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream v1.0 • Storage: Local",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "Search tasks...",
+          "type": "text",
+          "placeholder": "Search tasks...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "TaskStream Local Storage Active",
+          "icon": null,
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Tasks",
+          "icon": "checklist",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Archives",
+          "icon": "archive",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "icon": "add",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream v1.0 • Storage: Local",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Empty and Error Recovery - Compact One Page Task Chip Utility"
+    },
+    "9bf8a77dda5d4da4b2f0902e497028a9": {
+      "screenId": "9bf8a77dda5d4da4b2f0902e497028a9",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "bg-surface",
+            "dark:bg-background",
+            "border-b",
+            "border-outline-variant",
+            "dark:border-outline",
+            "flex",
+            "justify-between",
+            "items-center",
+            "px-container-padding",
+            "h-14"
+          ],
+          "childCount": 5
+        },
+        {
+          "tag": "nav",
+          "layout": "flex-col",
+          "classes": [
+            "hidden",
+            "md:flex",
+            "flex-col",
+            "h-full",
+            "p-element-gap",
+            "bg-surface-container-low",
+            "dark:bg-surface-container-highest",
+            "border-r",
+            "border-outline-variant",
+            "dark:border-outline"
+          ],
+          "childCount": 6
+        },
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "flex-1",
+            "flex",
+            "flex-col",
+            "bg-surface",
+            "p-container-padding",
+            "overflow-y-auto",
+            "relative"
+          ],
+          "childCount": 35
+        },
+        {
+          "tag": "footer",
+          "layout": "flex-row",
+          "classes": [
+            "bg-surface-container-lowest",
+            "dark:bg-surface-dim",
+            "border-t",
+            "border-outline-variant",
+            "dark:border-outline",
+            "flex",
+            "justify-between",
+            "items-center",
+            "px-container-padding",
+            "py-2"
+          ],
+          "childCount": 2
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "Filter List",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-low",
+            "dark:hover:bg-surface-container-highest",
+            "transition-colors",
+            "rounded",
+            "p-1"
+          ],
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "Settings",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-low",
+            "dark:hover:bg-surface-container-highest",
+            "transition-colors",
+            "rounded",
+            "p-1"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "text-on-primary",
+            "font-label-md",
+            "text-label-md",
+            "py-2",
+            "rounded",
+            "shadow-sm",
+            "hover:opacity-90",
+            "transition-opacity",
+            "flex",
+            "justify-center",
+            "items-center",
+            "gap-2"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Sort",
+          "classes": [
+            "text-outline",
+            "hover:text-on-surface",
+            "transition-colors",
+            "p-1"
+          ],
+          "icon": "sort",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "close",
+          "classes": [
+            "delete-btn",
+            "text-outline",
+            "flex",
+            "items-center",
+            "justify-center",
+            "p-0.5",
+            "rounded-full",
+            "hover:bg-surface-container-high"
+          ],
+          "icon": "close",
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Active",
+          "classes": [
+            "flex-1",
+            "border",
+            "border-primary",
+            "bg-primary-fixed-dim",
+            "text-primary",
+            "font-label-md",
+            "text-label-md",
+            "py-1.5",
+            "rounded",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-1"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Pending",
+          "classes": [
+            "flex-1",
+            "border",
+            "border-outline-variant",
+            "text-on-surface-variant",
+            "hover:bg-surface-variant",
+            "font-label-md",
+            "text-label-md",
+            "py-1.5",
+            "rounded",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Done",
+          "classes": [
+            "flex-1",
+            "border",
+            "border-outline-variant",
+            "text-on-surface-variant",
+            "hover:bg-surface-variant",
+            "font-label-md",
+            "text-label-md",
+            "py-1.5",
+            "rounded",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Discard",
+          "classes": [
+            "px-4",
+            "py-1.5",
+            "border",
+            "border-outline-variant",
+            "text-on-surface-variant",
+            "font-label-md",
+            "text-label-md",
+            "rounded",
+            "hover:bg-surface-variant",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Save Changes",
+          "classes": [
+            "px-4",
+            "py-1.5",
+            "bg-primary",
+            "text-on-primary",
+            "font-label-md",
+            "text-label-md",
+            "rounded",
+            "hover:bg-opacity-90",
+            "transition-colors",
+            "shadow-sm"
+          ],
+          "icon": null,
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "Navigation",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Status",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Local Storage Active",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream v1.0 • Storage: Local",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search records",
+          "placeholder": "Search tasks...",
+          "name": "",
+          "classes": [
+            "bg-transparent",
+            "border-none",
+            "focus:ring-0",
+            "p-0",
+            "text-body-sm",
+            "w-full",
+            "text-on-surface",
+            "placeholder:text-outline"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search...",
+          "placeholder": "Search...",
+          "name": "",
+          "classes": [
+            "bg-transparent",
+            "border-none",
+            "focus:ring-0",
+            "p-0",
+            "text-label-xs",
+            "w-full"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "text",
+          "placeholder": "",
+          "name": "",
+          "classes": [
+            "w-full",
+            "bg-surface-bright",
+            "border",
+            "border-outline-variant",
+            "rounded",
+            "px-3",
+            "py-2",
+            "font-body-sm",
+            "text-body-sm",
+            "text-on-surface",
+            "focus-ring",
+            "transition-colors"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "textarea",
+          "label": "Add task details...",
+          "placeholder": "Add task details...",
+          "name": "",
+          "classes": [
+            "w-full",
+            "bg-surface-bright",
+            "border",
+            "border-outline-variant",
+            "rounded",
+            "px-3",
+            "py-2",
+            "font-body-sm",
+            "text-body-sm",
+            "text-on-surface",
+            "focus-ring",
+            "transition-colors",
+            "h-24",
+            "resize-none"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Tasks",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined",
+            "text-[18px]"
+          ],
+          "icon": "checklist",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Archives",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined",
+            "text-[18px]"
+          ],
+          "icon": "archive",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "href": "#",
+          "classes": [
+            "font-label-xs",
+            "text-label-xs",
+            "text-on-surface-variant",
+            "opacity-80",
+            "hover:opacity-100",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed-dim",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "href": "#",
+          "classes": [
+            "font-label-xs",
+            "text-label-xs",
+            "text-on-surface-variant",
+            "opacity-80",
+            "hover:opacity-100",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed-dim",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "search",
+        "filter_list",
+        "settings",
+        "person",
+        "checklist",
+        "archive",
+        "add",
+        "sort",
+        "close"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "surface-container": "#e6eeff",
+        "surface-tint": "#4d44e3",
+        "surface-dim": "#ccdbf3",
+        "on-primary-fixed": "#0f0069",
+        "tertiary": "#7e3000",
+        "primary-container": "#4f46e5",
+        "on-tertiary-fixed": "#351000",
+        "on-error": "#ffffff",
+        "surface-container-low": "#eff4ff",
+        "on-secondary-fixed": "#07006c",
+        "primary-fixed-dim": "#c3c0ff",
+        "inverse-primary": "#c3c0ff",
+        "on-primary-container": "#dad7ff",
+        "surface-variant": "#d5e3fc",
+        "surface": "#f8f9ff",
+        "inverse-on-surface": "#eaf1ff",
+        "on-surface": "#0d1c2e",
+        "surface-container-lowest": "#ffffff",
+        "secondary": "#4648d4",
+        "secondary-fixed-dim": "#c0c1ff",
+        "outline": "#777587",
+        "surface-bright": "#f8f9ff",
+        "inverse-surface": "#233144",
+        "outline-variant": "#c7c4d8",
+        "on-tertiary": "#ffffff",
+        "secondary-fixed": "#e1e0ff",
+        "error-container": "#ffdad6",
+        "on-surface-variant": "#464555",
+        "secondary-container": "#6063ee",
+        "error": "#ba1a1a",
+        "surface-container-highest": "#d5e3fc",
+        "on-tertiary-fixed-variant": "#7b2f00",
+        "on-secondary-fixed-variant": "#2f2ebe",
+        "on-error-container": "#93000a",
+        "on-secondary": "#ffffff",
+        "tertiary-container": "#a44100",
+        "on-primary": "#ffffff",
+        "primary": "#3525cd",
+        "surface-container-high": "#dce9ff",
+        "tertiary-fixed": "#ffdbcc",
+        "background": "#f8f9ff",
+        "on-secondary-container": "#fffbff",
+        "on-primary-fixed-variant": "#3323cc",
+        "tertiary-fixed-dim": "#ffb695",
+        "on-background": "#0d1c2e",
+        "primary-fixed": "#e2dfff",
+        "on-tertiary-container": "#ffd2be"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "4"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Tasks",
+          "icon": "checklist",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Archives",
+          "icon": "archive",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "Filter List",
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "Settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Sort",
+          "icon": "sort",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "close",
+          "icon": "close",
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Active",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Pending",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Done",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Discard",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Save Changes",
+          "icon": null,
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "Navigation",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Status",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Local Storage Active",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream v1.0 • Storage: Local",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "Search records",
+          "type": "text",
+          "placeholder": "Search tasks...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "Search...",
+          "type": "text",
+          "placeholder": "Search...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "text",
+          "type": "text",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "Add task details...",
+          "type": "textarea",
+          "placeholder": "Add task details...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "Navigation",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Tasks",
+          "icon": "checklist",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Archives",
+          "icon": "archive",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "Status",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "Local Storage Active",
+          "icon": null,
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "icon": "add",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream v1.0 • Storage: Local",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Record Operations - Compact One Page Task Chip Utility"
+    },
+    "d367654a23694e4694445868e564ac3c": {
+      "screenId": "d367654a23694e4694445868e564ac3c",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "header",
+          "layout": "block",
+          "classes": [
+            "bg-surface",
+            "dark:bg-background",
+            "text-primary",
+            "dark:text-primary-fixed",
+            "font-headline-sm",
+            "text-headline-sm",
+            "docked",
+            "full-width",
+            "top-0",
+            "border-b"
+          ],
+          "childCount": 3
+        },
+        {
+          "tag": "main",
+          "layout": "flex-row",
+          "classes": [
+            "flex-1",
+            "overflow-y-auto",
+            "p-container-padding",
+            "flex",
+            "justify-center",
+            "items-start",
+            "pt-10"
+          ],
+          "childCount": 10
+        },
+        {
+          "tag": "footer",
+          "layout": "block",
+          "classes": [
+            "bg-surface-container-lowest",
+            "dark:bg-surface-dim",
+            "text-secondary",
+            "dark:text-secondary-fixed",
+            "font-label-xs",
+            "text-label-xs",
+            "docked",
+            "full-width",
+            "bottom-0",
+            "border-t"
+          ],
+          "childCount": 2
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "filter_list",
+          "classes": [
+            "text-on-surface-variant",
+            "dark:text-surface-variant",
+            "hover:bg-surface-container-low",
+            "dark:hover:bg-surface-container-highest",
+            "transition-colors",
+            "cursor-pointer",
+            "active:opacity-70",
+            "p-1",
+            "rounded-full",
+            "flex",
+            "items-center",
+            "justify-center"
+          ],
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "text-on-surface-variant",
+            "dark:text-surface-variant",
+            "hover:bg-surface-container-low",
+            "dark:hover:bg-surface-container-highest",
+            "transition-colors",
+            "cursor-pointer",
+            "active:opacity-70",
+            "p-1",
+            "rounded-full",
+            "flex",
+            "items-center",
+            "justify-center"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "Tag",
+          "classes": [
+            "inline-flex",
+            "items-center",
+            "gap-1",
+            "bg-surface-container-lowest",
+            "border",
+            "border-dashed",
+            "border-outline-variant",
+            "rounded",
+            "px-2",
+            "py-1",
+            "hover:bg-surface-container-low",
+            "transition-colors",
+            "text-on-surface-variant",
+            "hover:text-primary"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "classes": [
+            "font-label-md",
+            "text-label-md",
+            "px-4",
+            "py-2",
+            "rounded",
+            "border",
+            "border-outline-variant",
+            "text-on-surface-variant",
+            "hover:bg-surface-container-low",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Save Changes",
+          "classes": [
+            "font-label-md",
+            "text-label-md",
+            "px-4",
+            "py-2",
+            "rounded",
+            "bg-primary",
+            "text-on-primary",
+            "hover:bg-primary/90",
+            "transition-colors",
+            "shadow-sm"
+          ],
+          "icon": null,
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream v1.0 • Storage: Local",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search...",
+          "placeholder": "Search...",
+          "name": "",
+          "classes": [
+            "bg-transparent",
+            "border-none",
+            "text-body-sm",
+            "focus:ring-0",
+            "text-on-surface",
+            "w-48",
+            "placeholder-on-surface-variant",
+            "ml-2",
+            "p-0",
+            "h-6"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "e.g. Q4 Financial Review",
+          "placeholder": "e.g. Q4 Financial Review",
+          "name": "taskName",
+          "classes": [
+            "bg-surface-container-lowest",
+            "border",
+            "border-error",
+            "text-on-surface",
+            "font-body-md",
+            "text-body-md",
+            "rounded",
+            "px-3",
+            "py-2",
+            "focus:outline-none",
+            "focus:ring-1",
+            "focus:ring-error",
+            "focus:border-error",
+            "transition-colors",
+            "w-full",
+            "bg-error-container/10"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "textarea",
+          "label": "Add detailed context or steps here...",
+          "placeholder": "Add detailed context or steps here...",
+          "name": "taskDescription",
+          "classes": [
+            "bg-surface-container-lowest",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "font-body-md",
+            "text-body-md",
+            "rounded",
+            "px-3",
+            "py-2",
+            "focus:outline-none",
+            "focus:border-primary",
+            "focus:ring-1",
+            "focus:ring-primary/20",
+            "transition-colors",
+            "w-full",
+            "resize-y"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "href": "#",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed-dim",
+            "opacity-80",
+            "hover:opacity-100",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "href": "#",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed-dim",
+            "opacity-80",
+            "hover:opacity-100",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "search",
+        "filter_list",
+        "settings",
+        "warning",
+        "error",
+        "close",
+        "add"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "surface-container": "#e6eeff",
+        "surface-tint": "#4d44e3",
+        "surface-dim": "#ccdbf3",
+        "on-primary-fixed": "#0f0069",
+        "tertiary": "#7e3000",
+        "primary-container": "#4f46e5",
+        "on-tertiary-fixed": "#351000",
+        "on-error": "#ffffff",
+        "surface-container-low": "#eff4ff",
+        "on-secondary-fixed": "#07006c",
+        "primary-fixed-dim": "#c3c0ff",
+        "inverse-primary": "#c3c0ff",
+        "on-primary-container": "#dad7ff",
+        "surface-variant": "#d5e3fc",
+        "surface": "#f8f9ff",
+        "inverse-on-surface": "#eaf1ff",
+        "on-surface": "#0d1c2e",
+        "surface-container-lowest": "#ffffff",
+        "secondary": "#4648d4",
+        "secondary-fixed-dim": "#c0c1ff",
+        "outline": "#777587",
+        "surface-bright": "#f8f9ff",
+        "inverse-surface": "#233144",
+        "outline-variant": "#c7c4d8",
+        "on-tertiary": "#ffffff",
+        "secondary-fixed": "#e1e0ff",
+        "error-container": "#ffdad6",
+        "on-surface-variant": "#464555",
+        "secondary-container": "#6063ee",
+        "error": "#ba1a1a",
+        "surface-container-highest": "#d5e3fc",
+        "on-tertiary-fixed-variant": "#7b2f00",
+        "on-secondary-fixed-variant": "#2f2ebe",
+        "on-error-container": "#93000a",
+        "on-secondary": "#ffffff",
+        "tertiary-container": "#a44100",
+        "on-primary": "#ffffff",
+        "primary": "#3525cd",
+        "surface-container-high": "#dce9ff",
+        "tertiary-fixed": "#ffdbcc",
+        "background": "#f8f9ff",
+        "on-secondary-container": "#fffbff",
+        "on-primary-fixed-variant": "#3323cc",
+        "tertiary-fixed-dim": "#ffb695",
+        "on-background": "#0d1c2e",
+        "primary-fixed": "#e2dfff",
+        "on-tertiary-container": "#ffd2be"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "flexDirection": "col",
+        "gap": "2"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "filter_list",
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "Tag",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Save Changes",
+          "icon": null,
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "TaskStream v1.0 • Storage: Local",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "Search...",
+          "type": "text",
+          "placeholder": "Search...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "e.g. Q4 Financial Review",
+          "type": "text",
+          "placeholder": "e.g. Q4 Financial Review",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "Add detailed context or steps here...",
+          "type": "textarea",
+          "placeholder": "Add detailed context or steps here...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "TaskStream v1.0 • Storage: Local",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Record Editor - Compact One Page Task Chip Utility"
+    }
+  }
+}

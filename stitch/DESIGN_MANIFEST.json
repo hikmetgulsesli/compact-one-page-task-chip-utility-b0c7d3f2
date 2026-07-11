@@ -1,0 +1,35 @@
+[
+  {
+    "screenId": "d367654a23694e4694445868e564ac3c",
+    "title": "Record Editor - Compact One Page Task Chip Utility",
+    "htmlFile": "d367654a23694e4694445868e564ac3c.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzk4OWYzYTY3OWYyNTQ0Mjc5YjI1YTZmNDQzNmNiZTgwEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhMyMjc4MjY1MjQ1NzAzODA5Mzg0&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/compact-one-page-task-chip-utility-b0c7d3f2/stitch/d367654a23694e4694445868e564ac3c.html",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "1229cabf8518496db73e326e9f0b0839",
+    "title": "Empty and Error Recovery - Compact One Page Task Chip Utility",
+    "htmlFile": "1229cabf8518496db73e326e9f0b0839.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzNlYTRjYmE1MWQ0MzRlYjdiZmYzOGNlN2RkNjE2ZDZkEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhMyMjc4MjY1MjQ1NzAzODA5Mzg0&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/compact-one-page-task-chip-utility-b0c7d3f2/stitch/1229cabf8518496db73e326e9f0b0839.html",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "9bf8a77dda5d4da4b2f0902e497028a9",
+    "title": "Record Operations - Compact One Page Task Chip Utility",
+    "htmlFile": "9bf8a77dda5d4da4b2f0902e497028a9.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2NlMDkwZWEyNzZlOTQ4ZTc4ZjA2YWJkMTY5OWM1OWQyEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhMyMjc4MjY1MjQ1NzAzODA5Mzg0&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/compact-one-page-task-chip-utility-b0c7d3f2/stitch/9bf8a77dda5d4da4b2f0902e497028a9.html",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  }
+]
