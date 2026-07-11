@@ -1,0 +1,261 @@
+[
+  {
+    "screenId": "d367654a23694e4694445868e564ac3c",
+    "title": "Record Editor - Compact One Page Task Chip Utility",
+    "componentName": "RecordEditorCompactOnePageTaskChipUtility",
+    "file": "src/screens/RecordEditorCompactOnePageTaskChipUtility.tsx",
+    "buttons": 5,
+    "inputs": 2,
+    "links": 2,
+    "actions": [
+      {
+        "id": "filter-list-1",
+        "kind": "button",
+        "label": "Filter List",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "button",
+        "label": "Settings",
+        "index": 1
+      },
+      {
+        "id": "add-tag-3",
+        "kind": "button",
+        "label": "Add Tag",
+        "index": 2
+      },
+      {
+        "id": "cancel-4",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 3
+      },
+      {
+        "id": "save-changes-5",
+        "kind": "button",
+        "label": "Save Changes",
+        "index": 4
+      },
+      {
+        "id": "clear-cache-1",
+        "kind": "link",
+        "label": "Clear Cache",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "export-json-2",
+        "kind": "link",
+        "label": "Export JSON",
+        "href": "#",
+        "index": 1
+      }
+    ]
+  },
+  {
+    "screenId": "1229cabf8518496db73e326e9f0b0839",
+    "title": "Empty and Error Recovery - Compact One Page Task Chip Utility",
+    "componentName": "EmptyAndErrorRecoveryCompactOnePageTaskChipUtility",
+    "file": "src/screens/EmptyAndErrorRecoveryCompactOnePageTaskChipUtility.tsx",
+    "buttons": 6,
+    "inputs": 1,
+    "links": 4,
+    "actions": [
+      {
+        "id": "add-new-task-1",
+        "kind": "button",
+        "label": "Add New Task",
+        "index": 0
+      },
+      {
+        "id": "filter-list-2",
+        "kind": "button",
+        "label": "Filter List",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "button",
+        "label": "Settings",
+        "index": 2
+      },
+      {
+        "id": "retry-sync-4",
+        "kind": "button",
+        "label": "Retry Sync",
+        "index": 3
+      },
+      {
+        "id": "create-your-first-task-5",
+        "kind": "button",
+        "label": "Create your first task",
+        "index": 4
+      },
+      {
+        "id": "clear-filters-6",
+        "kind": "button",
+        "label": "Clear Filters",
+        "index": 5
+      },
+      {
+        "id": "tasks-1",
+        "kind": "link",
+        "label": "Tasks",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "archives-2",
+        "kind": "link",
+        "label": "Archives",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "clear-cache-3",
+        "kind": "link",
+        "label": "Clear Cache",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "export-json-4",
+        "kind": "link",
+        "label": "Export JSON",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  },
+  {
+    "screenId": "9bf8a77dda5d4da4b2f0902e497028a9",
+    "title": "Record Operations - Compact One Page Task Chip Utility",
+    "componentName": "RecordOperationsCompactOnePageTaskChipUtility",
+    "file": "src/screens/RecordOperationsCompactOnePageTaskChipUtility.tsx",
+    "buttons": 15,
+    "inputs": 3,
+    "links": 4,
+    "actions": [
+      {
+        "id": "filter-list-1",
+        "kind": "button",
+        "label": "Filter List",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "button",
+        "label": "Settings",
+        "index": 1
+      },
+      {
+        "id": "add-new-task-3",
+        "kind": "button",
+        "label": "Add New Task",
+        "index": 2
+      },
+      {
+        "id": "new-task-4",
+        "kind": "button",
+        "label": "New Task",
+        "index": 3
+      },
+      {
+        "id": "sort-5",
+        "kind": "button",
+        "label": "Sort",
+        "index": 4
+      },
+      {
+        "id": "close-6",
+        "kind": "button",
+        "label": "Close",
+        "index": 5
+      },
+      {
+        "id": "close-7",
+        "kind": "button",
+        "label": "Close",
+        "index": 6
+      },
+      {
+        "id": "close-8",
+        "kind": "button",
+        "label": "Close",
+        "index": 7
+      },
+      {
+        "id": "close-9",
+        "kind": "button",
+        "label": "Close",
+        "index": 8
+      },
+      {
+        "id": "close-10",
+        "kind": "button",
+        "label": "Close",
+        "index": 9
+      },
+      {
+        "id": "active-11",
+        "kind": "button",
+        "label": "Active",
+        "index": 10
+      },
+      {
+        "id": "pending-12",
+        "kind": "button",
+        "label": "Pending",
+        "index": 11
+      },
+      {
+        "id": "done-13",
+        "kind": "button",
+        "label": "Done",
+        "index": 12
+      },
+      {
+        "id": "discard-14",
+        "kind": "button",
+        "label": "Discard",
+        "index": 13
+      },
+      {
+        "id": "save-changes-15",
+        "kind": "button",
+        "label": "Save Changes",
+        "index": 14
+      },
+      {
+        "id": "tasks-1",
+        "kind": "link",
+        "label": "Tasks",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "archives-2",
+        "kind": "link",
+        "label": "Archives",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "clear-cache-3",
+        "kind": "link",
+        "label": "Clear Cache",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "export-json-4",
+        "kind": "link",
+        "label": "Export JSON",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  }
+]
