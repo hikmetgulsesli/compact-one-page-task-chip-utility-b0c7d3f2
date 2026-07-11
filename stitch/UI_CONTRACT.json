@@ -1,0 +1,558 @@
+[
+  {
+    "screenId": "d367654a23694e4694445868e564ac3c",
+    "screenTitle": "Record Editor - Compact One Page Task Chip Utility",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Clear Cache",
+        "href": "#",
+        "line": 186
+      },
+      {
+        "type": "link",
+        "label": "Export JSON",
+        "href": "#",
+        "line": 187
+      },
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 113
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 116
+      },
+      {
+        "type": "button",
+        "label": "Tag",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Save Changes",
+        "line": 172
+      },
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 110
+      },
+      {
+        "type": "input",
+        "label": "e.g. Q4 Financial Review",
+        "inputType": "text",
+        "placeholder": "e.g. Q4 Financial Review",
+        "line": 137
+      },
+      {
+        "type": "input",
+        "label": "Add detailed context or steps here...",
+        "inputType": "textarea",
+        "placeholder": "Add detailed context or steps here...",
+        "line": 145
+      },
+      {
+        "type": "form",
+        "label": "form",
+        "line": 133
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Clear Cache",
+        "href": "#",
+        "line": 186
+      },
+      {
+        "type": "link",
+        "label": "Export JSON",
+        "href": "#",
+        "line": 187
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 113
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 116
+      },
+      {
+        "type": "button",
+        "label": "Tag",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Save Changes",
+        "line": 172
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 110
+      },
+      {
+        "type": "input",
+        "label": "e.g. Q4 Financial Review",
+        "inputType": "text",
+        "placeholder": "e.g. Q4 Financial Review",
+        "line": 137
+      },
+      {
+        "type": "input",
+        "label": "Add detailed context or steps here...",
+        "inputType": "textarea",
+        "placeholder": "Add detailed context or steps here...",
+        "line": 145
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 11,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "1229cabf8518496db73e326e9f0b0839",
+    "screenTitle": "Empty and Error Recovery - Compact One Page Task Chip Utility",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Tasks",
+        "href": "#",
+        "line": 110
+      },
+      {
+        "type": "link",
+        "label": "Archives",
+        "href": "#",
+        "line": 114
+      },
+      {
+        "type": "link",
+        "label": "Clear Cache",
+        "href": "#",
+        "line": 194
+      },
+      {
+        "type": "link",
+        "label": "Export JSON",
+        "href": "#",
+        "line": 195
+      },
+      {
+        "type": "button",
+        "label": "New Task",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 137
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 140
+      },
+      {
+        "type": "button",
+        "label": "Retry Sync",
+        "line": 156
+      },
+      {
+        "type": "button",
+        "label": "Create your first task",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Clear Filters",
+        "line": 181
+      },
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 135
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Tasks",
+        "href": "#",
+        "line": 110
+      },
+      {
+        "type": "link",
+        "label": "Archives",
+        "href": "#",
+        "line": 114
+      },
+      {
+        "type": "link",
+        "label": "Clear Cache",
+        "href": "#",
+        "line": 194
+      },
+      {
+        "type": "link",
+        "label": "Export JSON",
+        "href": "#",
+        "line": 195
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Task",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 137
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 140
+      },
+      {
+        "type": "button",
+        "label": "Retry Sync",
+        "line": 156
+      },
+      {
+        "type": "button",
+        "label": "Create your first task",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Clear Filters",
+        "line": 181
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 135
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 11,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "9bf8a77dda5d4da4b2f0902e497028a9",
+    "screenTitle": "Record Operations - Compact One Page Task Chip Utility",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Tasks",
+        "href": "#",
+        "line": 169
+      },
+      {
+        "type": "link",
+        "label": "Archives",
+        "href": "#",
+        "line": 174
+      },
+      {
+        "type": "link",
+        "label": "Clear Cache",
+        "href": "#",
+        "line": 365
+      },
+      {
+        "type": "link",
+        "label": "Export JSON",
+        "href": "#",
+        "line": 366
+      },
+      {
+        "type": "button",
+        "label": "Filter List",
+        "line": 149
+      },
+      {
+        "type": "button",
+        "label": "Settings",
+        "line": 152
+      },
+      {
+        "type": "button",
+        "label": "New Task",
+        "line": 183
+      },
+      {
+        "type": "button",
+        "label": "New Task",
+        "line": 213
+      },
+      {
+        "type": "button",
+        "label": "Sort",
+        "line": 231
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 242
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 249
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 257
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 264
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 271
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 289
+      },
+      {
+        "type": "button",
+        "label": "Active",
+        "line": 314
+      },
+      {
+        "type": "button",
+        "label": "Pending",
+        "line": 318
+      },
+      {
+        "type": "button",
+        "label": "Done",
+        "line": 321
+      },
+      {
+        "type": "button",
+        "label": "Discard",
+        "line": 348
+      },
+      {
+        "type": "button",
+        "label": "Save Changes",
+        "line": 351
+      },
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 145
+      },
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 228
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 308
+      },
+      {
+        "type": "input",
+        "label": "Add task details...",
+        "inputType": "textarea",
+        "placeholder": "Add task details...",
+        "line": 329
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Tasks",
+        "href": "#",
+        "line": 169
+      },
+      {
+        "type": "link",
+        "label": "Archives",
+        "href": "#",
+        "line": 174
+      },
+      {
+        "type": "link",
+        "label": "Clear Cache",
+        "href": "#",
+        "line": 365
+      },
+      {
+        "type": "link",
+        "label": "Export JSON",
+        "href": "#",
+        "line": 366
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Filter List",
+        "line": 149
+      },
+      {
+        "type": "button",
+        "label": "Settings",
+        "line": 152
+      },
+      {
+        "type": "button",
+        "label": "New Task",
+        "line": 183
+      },
+      {
+        "type": "button",
+        "label": "New Task",
+        "line": 213
+      },
+      {
+        "type": "button",
+        "label": "Sort",
+        "line": 231
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 242
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 249
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 257
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 264
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 271
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 289
+      },
+      {
+        "type": "button",
+        "label": "Active",
+        "line": 314
+      },
+      {
+        "type": "button",
+        "label": "Pending",
+        "line": 318
+      },
+      {
+        "type": "button",
+        "label": "Done",
+        "line": 321
+      },
+      {
+        "type": "button",
+        "label": "Discard",
+        "line": 348
+      },
+      {
+        "type": "button",
+        "label": "Save Changes",
+        "line": 351
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 145
+      },
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 228
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 308
+      },
+      {
+        "type": "input",
+        "label": "Add task details...",
+        "inputType": "textarea",
+        "placeholder": "Add task details...",
+        "line": 329
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 24,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
